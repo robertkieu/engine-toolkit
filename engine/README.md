@@ -1,3 +1,7 @@
+# `engine` tool
+
+This tool is bundled into engines and becomes the entry point. It is more fully explained in [the documentation](https://machinebox.io/experiments/engine-toolkit#the-engine-executable).
+
 ## Development
 
 ### Kafka integration test
@@ -16,11 +20,9 @@ KAFKATEST=true go test -v ./...
 
 ## TODO
 
-- [ ] Figure out when to send each chunk's output
 - [ ] Strict response checking?
 - [ ] Kick off a test job?
 - [ ] CI 
-- [ ] Design how training works
 
 ## Resources
 
