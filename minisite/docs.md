@@ -118,6 +118,8 @@ The following JSON is an example showing some faces that were found in the image
 * `series[].object.confidence` - (number) A number `0-1` of how confident the engine is about this object
 * `series[].object.boundingPoly` - (array) Array of points that describe the [region within a larger image](#regions)
 
+> If you have a question about what your engine should output and this documentation doesn't cover it, please [open an issue to start a conversation](https://github.com/veritone/engine-toolkit/issues/new).
+
 ## Testing your webhooks
 
 Since the [Webhooks](#webhooks) are just HTTP endpoints, you can test them by making your own HTTP requests directly.
