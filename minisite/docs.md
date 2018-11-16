@@ -163,7 +163,7 @@ The most common commands in a `Dockerfile` are:
 
 > To learn more about Docker and what it can do, we recommend that you browse the official [Docker Documentation](https://docs.docker.com/).
 
-> If you want to dig deeper into what can be done in your `Dockerfile`, you can [read the Dockerfile reference manual](https://docs.docker.com/engine/reference/builder/#from).
+> If you want to dig deeper into what can be done in your `Dockerfile`, you can [read the Dockerfile reference manual](https://docs.docker.com/engine/reference/builder/#from) or continue reading for a light overview.
 
 ### Understand the `Dockerfile`
 
