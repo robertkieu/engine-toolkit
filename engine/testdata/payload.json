@@ -1,0 +1,11 @@
+{
+	"applicationId": "applicationId",
+	"recordingId": "recordingId",
+	"jobId": "jobId",
+	"taskId": "taskId",
+	"token": "token",
+	"mode": "mode",
+	"libraryId": "libraryId",
+	"libraryEngineModelId": "libraryEngineModelId",
+	"veritoneApiBaseUrl": "https://api.veritone.com"
+}

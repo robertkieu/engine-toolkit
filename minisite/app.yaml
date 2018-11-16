@@ -1,0 +1,7 @@
+runtime: go111
+service: engine-toolkit
+handlers:
+- url: /experiments/engine-toolkit/static
+  static_dir: static
+- url: /experiments/engine-toolkit*
+  script: auto

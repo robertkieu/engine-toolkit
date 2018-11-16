@@ -1,0 +1,71 @@
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	"os/signal"
+	"syscall"
+
+	"github.com/pkg/errors"
+)
+
+// BuildTag is the githash of this build.
+var BuildTag = "dev"
+
+func main() {
+	fmt.Printf("Veritone Engine Toolkit (%s)\n", BuildTag)
+	ctx := context.Background()
+	ctx, cancel := context.WithCancel(ctx)
+	c := make(chan os.Signal, 1)
+	signal.Notify(c, syscall.SIGINT, syscall.SIGTERM)
+	defer func() {
+		cancel()
+		signal.Stop(c)
+	}()
+	go func() {
+		select {
+		case <-c:
+			cancel()
+		case <-ctx.Done():
+			return
+		}
+	}()
+	if err := run(ctx); err != nil {
+		fmt.Fprintf(os.Stderr, "FATAL: %v\n", err)
+		os.Exit(1)
+	}
+}
+
+func run(ctx context.Context) error {
+	eng := NewEngine()
+	eng.logDebug("running engine", BuildTag)
+	defer eng.logDebug("done")
+	isTraining, err := isTrainingTask()
+	if err != nil {
+		eng.logDebug("assuming processing task because isTrainingTask error:", err)
+	}
+	if !isTraining {
+		eng.logDebug("brokers:", eng.Config.Kafka.Brokers)
+		eng.logDebug("consumer group:", eng.Config.Kafka.ConsumerGroup)
+		eng.logDebug("input topic:", eng.Config.Kafka.InputTopic)
+		eng.logDebug("chunk topic:", eng.Config.Kafka.ChunkTopic)
+		var err error
+		var cleanup func()
+		eng.consumer, cleanup, err = newKafkaConsumer(eng.Config.Kafka.Brokers, eng.Config.Kafka.ConsumerGroup, eng.Config.Kafka.InputTopic)
+		if err != nil {
+			return errors.Wrap(err, "kafka consumer")
+		}
+		defer cleanup()
+		eng.producer, err = newKafkaProducer(eng.Config.Kafka.Brokers)
+		if err != nil {
+			return errors.Wrap(err, "kafka producer")
+		}
+	} else {
+		eng.logDebug("skipping kafka setup")
+	}
+	if err := eng.Run(ctx); err != nil {
+		return err
+	}
+	return nil
+}

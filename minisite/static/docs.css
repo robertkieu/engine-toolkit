@@ -1,0 +1,71 @@
+html, body {
+	background-color: #fdfdfd;
+	font-family: 'Roboto', sans-serif;
+}
+
+::selection {
+    background: #ffe500;
+    color: #121212;
+}
+
+.container {
+	max-width: 960px;
+}
+
+.footer {
+	background-color: transparent;
+}
+
+.content h1, .content h2, .content h3, .content h4, .content h5, .content h6 {
+	color: #444;
+	font-weight: lighter;
+	border-bottom: 3px solid #ffe500;
+	display: inline-block;
+	padding: 3px 0px;
+}
+
+h1 code, h2 code, h3 code, h4 code, h5 code, h6 code {
+	background-color: transparent;
+}
+
+h1.top-title {
+	padding-top: 0px;
+}
+
+.content blockquote {
+	background-color: #fff;
+}
+
+.side-card {
+	max-width: 200px;
+}
+
+.veritone.hero {
+    background: url(VG@1x.png) rgb(33, 150, 243) no-repeat;
+    background-size: contain;
+	background-position: left;
+	margin-bottom: 20px;
+}
+
+.button small {
+	font-size: 10px;
+	margin-left: 10px;
+}
+ 
+code {
+	color: inherit;
+	padding: 2px;
+	background-color: #eee;
+	font-family: 'Anonymous Pro', 'Inconsolata', monospace !important;
+	font-size: 1em;
+	line-height: 1.4em;
+}
+
+pre {
+	background-color: #eee;
+}
+
+pre code {
+	padding: 0px;
+	tab-size: 3;
+}
