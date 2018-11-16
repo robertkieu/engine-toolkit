@@ -68,6 +68,7 @@ The following advanced fields are also included:
 * `libraryEngineModelId` - (string) ID of the library engine model related to this task
 * `cacheURI` - (string) URL of the chunk source file
 * `veritoneApiBaseUrl` - (string) The root URL for Veritone platform API requests
+* `token` - (string) The token to use when making low level API requests
 
 > As the Engine Toolkit evolves, we expect to add more fields here.
 
