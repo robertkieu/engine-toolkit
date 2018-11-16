@@ -22,6 +22,8 @@ The rest of this guide describes how to do this, and provides additional reading
 An engine is an executable program, packaged along with its dependencies, into a [Docker container](#writing-a-dockerfile).
 Engines listen on an HTTP address and implement [Webhooks](#webhooks), which are called when they receive work.
 
+> For a complete example engine, see the [EXIF engine source code in Github](https://github.com/veritone/engine-toolkit/tree/master/engine/examples/exif).
+
 ## Webhooks
 
 Engines must implement the following webhooks:
