@@ -1,4 +1,4 @@
-# Exif engine
+# EXIF engine
 
 This sample engine is a fully functional engine that runs on the Veritone platform.
 
