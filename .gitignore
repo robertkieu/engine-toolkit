@@ -12,3 +12,4 @@
 *.out
 engine/release/
 engine/dist/
+engine/examples/exif/dist/
