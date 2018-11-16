@@ -187,7 +187,7 @@ Usually your `manifest.json` file sits alongside your `Dockerfile` in your engin
 ADD ./dist/engine /app/engine
 ```
 
-The `engine` executable is available from the [Engine Toolkit SDK](#download-the-engine-toolkit-sdk) and it acts as a proxy between the Veritone platform, and your webhooks.
+The `engine` executable gets added to your docker image as the entry point, and it acts as a proxy between the Veritone platform and your webhooks.
 
 Specifically, it:
 
@@ -195,6 +195,8 @@ Specifically, it:
 * Connects to the Veritone platform and receives work
 * Calls your webhooks
 * Writes your responses back to the platform
+
+It is available when you [download the Engine Toolkit SDK](#download-the-engine-toolkit-sdk).
 
 #### Webhook environment variables
 
