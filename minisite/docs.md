@@ -219,30 +219,8 @@ ENTRYPOINT [ "/app/engine", "/app/your-engine", "--your-arg-1", "--your-arg-2" ]
 The `ENTRYPOINT` must always be the [`engine` executable](#the-engine-executable) as the first argument, but the other arguments are for you to use to specify your engine code process.
 
 * `/app/engine` - (required constant string) Must be `/app/engine` since it refers to the [`engine` executable](#the-engine-executable)
-* `/app/your-engine` - (required string) The path and name of your engine code
-* `--your-arg-n` - (optional strings) Additional arguments to pass when starting your engine code
-
-### Turning existing containers into engines
-
-If you already deploy your code via Docker containers, then it is recommended that you create a new `Dockerfile` and use your other container as the base image.
-
-For example, Facebox by Machine Box already has a `Dockerfile` that specifies the `ENTRYPOINT` as `/app/facebox`.
-
-We can create a new `Dockerfile` and base it on the `machinebox/facebox` container
-using the `FROM` command.
-
-```docker
-FROM machinebox/facebox
-
-# Add and configure the engine
-ADD manifest.json /var/manifest.json
-ADD ./dist/engine /app/engine
-ENV VERITONE_WEBHOOK_READY="http://0.0.0.0:8080/readyz"
-ENV VERITONE_WEBHOOK_PROCESS="http://0.0.0.0:8080/process"
-ENTRYPOINT [ "/app/engine", "/app/facebox" ]
-```
-
-> Notice how the second `ENTRYPOINT` argument is the original executable, but the `/app/engine` tool from the [Engine Toolkit SDK](#download-the-engine-toolkit-sdk) is the main entry point for the engine.
+* `/app/your-engine` - (required string) The path and name of your custom engine executable
+* `--your-arg-n` - (optional strings) Additional arguments to pass when running your custom engine executable
 
 # Deploy to Veritone
 
