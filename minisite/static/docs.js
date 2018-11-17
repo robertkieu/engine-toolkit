@@ -5,7 +5,7 @@ $(function(){
 	// is gently scrolled to, rather than jumping.
 	// Everything else is left alone.
 	$("a[href]").click(function(e) { 
-		var buffer = 20
+		var buffer = 15
 		var dest = $(this).attr('href')
 		dest = dest.substr(dest.indexOf('#')+1)
 		var destEl = $('[id="'+dest+'"]')
@@ -15,9 +15,9 @@ $(function(){
 				scrollTop: destEl.offset().top - buffer
 			}, 'slow')
 			if (history.pushState) {
-				history.pushState(null, null, '#'+dest);
+				history.pushState(null, null, '#'+dest)
 			} else {
-				location.hash = '#'+dest;
+				location.hash = '#'+dest
 			}
 		}
 	})
