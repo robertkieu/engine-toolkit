@@ -208,7 +208,7 @@ ENV VERITONE_WEBHOOK_PROCESS="http://0.0.0.0:8888/process"
 The environment variables specified with the `ENV` command inform the `engine` tool which webhooks to hit.
 
 * `VERITONE_WEBHOOK_READY` - (string) Complete URL (usually local) of your Ready webhook
-* `VERITONE_WEBHOOK_PROCESS` - (string) Compelte URL (usually local) of your Process webhook
+* `VERITONE_WEBHOOK_PROCESS` - (string) Complete URL (usually local) of your Process webhook
 
 #### Engine entrypoint
 
