@@ -15,10 +15,6 @@ func newRequestFromMediaChunk(client *http.Client, processURL string, msg mediaC
 	w := multipart.NewWriter(&buf)
 	w.WriteField("chunkMimeType", msg.MIMEType)
 	w.WriteField("chunkIndex", strconv.Itoa(msg.ChunkIndex))
-	//w.WriteField("chunkUUID", msg.ChunkUUID)
-	//w.WriteField("jobID", msg.JobID)
-	//w.WriteField("taskID", msg.TaskID)
-	//w.WriteField("tdoID", msg.TDOID)
 	w.WriteField("startOffsetMS", strconv.Itoa(msg.StartOffsetMS))
 	w.WriteField("endOffsetMS", strconv.Itoa(msg.EndOffsetMS))
 	w.WriteField("width", strconv.Itoa(msg.Width))
@@ -28,7 +24,6 @@ func newRequestFromMediaChunk(client *http.Client, processURL string, msg mediaC
 	w.WriteField("cacheURI", msg.CacheURI)
 	w.WriteField("veritoneApiBaseUrl", msg.TaskPayload.VeritoneAPIBaseURL)
 	w.WriteField("token", msg.TaskPayload.Token)
-	//w.WriteField("content", msg.Content)
 	if msg.CacheURI != "" {
 		f, err := w.CreateFormFile("chunk", "chunk.data")
 		if err != nil {
