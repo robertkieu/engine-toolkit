@@ -10,6 +10,6 @@
 
 # Output of the go coverage tool, specifically when used with LiteIDE
 *.out
-engine/release/
 engine/dist/
 engine/examples/exif/dist/
+engine/release/bin/engine 
