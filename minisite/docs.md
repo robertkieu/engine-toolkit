@@ -142,7 +142,8 @@ A `Dockerfile` explains the steps that Docker needs to take in order to build a 
 The following is an example of an engine `Dockerfile`:
 
 ```docker
-FROM scratch
+FROM alpine:latest
+RUN apk --no-cache add ca-certificates
 
 ADD ./your-engine /app/your-engine
 
