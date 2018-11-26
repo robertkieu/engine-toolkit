@@ -66,7 +66,7 @@ type item struct {
 	StartTimeMs int `json:"startTimeMs"`
 	EndTimeMs   int `json:"endTimeMs"`
 	Vendor      struct {
-		Exif      *exif.Exif `json:"exif"`
+		Exif      *exif.Exif `json:"exif,omitempty"`
 		ExifError string     `json:"exifError,omitempty"`
 	} `json:"vendor"`
 }
