@@ -1,5 +1,5 @@
-FROM scratch
-
+FROM alpine:latest
+RUN apk --no-cache add ca-certificates
 ADD dist/exif-extraction-engine /app/exif-extraction-engine
 
 ADD manifest.json /var/manifest.json
