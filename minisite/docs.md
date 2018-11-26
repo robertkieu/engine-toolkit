@@ -158,6 +158,7 @@ ENTRYPOINT [ "/app/engine", "/app/your-engine" ]
 The most common commands in a `Dockerfile` are:
 
 * `FROM` describes the Docker container you are starting with
+* `RUN` runs a command inside the container (`apk --no-cache add ca-certificates` ensures root certificates are installed so that the engine can access secure SSL files. You may or may not need this depending on which base you choose.)
 * `ADD` adds files to the container during the build process
 * `ENV` sets environment variables
 * `ENTRYPOINT` describes the executable that is run when an instance of the container is created by the platform
