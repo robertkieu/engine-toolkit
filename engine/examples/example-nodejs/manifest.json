@@ -1,0 +1,14 @@
+{
+  "engineId": "d10391fd-960d-495c-b4a7-96f258f5ac2d",
+  "url": "https://github.com/veritone/example-nodejs",
+  "category": "face detection",
+  "externalCalls": [],
+  "preferredInputFormat": "application/json",
+  "outputFormats": [
+    "application/json"
+  ],
+  "clusterSize": "small",
+  "initialConcurrency": 50,
+  "maxConcurrency": 50,
+  "engineMode": "chunk"
+}
